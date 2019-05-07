@@ -1,0 +1,12 @@
+newmtl plant02
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+map_Kd plant02.png
+
+newmtl bamboo leaf
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+map_Kd bamboo leaf.png
+
