@@ -6,7 +6,7 @@ public class DataItem
 {
     public string name;
     public string type;
-    public List<string> location;
+    public string location;
 }
 
 [System.Serializable]
