@@ -1,0 +1,15 @@
+{
+    "Items": [
+        
+        {"name":"Birch Tree", 
+         "type": "vegetation", 
+         "location":["0","0"]
+        },
+             
+        {"name":"Gandhi Statue", 
+         "type": "sculpture", 
+         "location":["0","0"]
+        }
+    
+    ]
+}
