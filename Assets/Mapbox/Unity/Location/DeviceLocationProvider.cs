@@ -77,7 +77,7 @@ namespace Mapbox.Unity.Location
 		private WaitForSeconds _wait1sec;
 		private WaitForSeconds _waitUpdateTime;
 		/// <summary>list of positions to keep for calculations</summary>
-		private CircularBuffer<Vector2d> _lastPositions;
+		public CircularBuffer<Vector2d> _lastPositions;
 		/// <summary>number of last positons to keep</summary>
 		private int _maxLastPositions = 5;
 		/// <summary>minimum needed distance between oldest and newest position before UserHeading is calculated</summary>
@@ -316,9 +316,9 @@ namespace Mapbox.Unity.Location
 							// atan2 increases angle CCW, flip sign of latDiff to get CW
 							double latDiff = -(_lastPositions[i].x - _lastPositions[i - 1].x);
 							double lngDiff = _lastPositions[i].y - _lastPositions[i - 1].y;
-							// +90.0 to make top (north) 0°
+							// +90.0 to make top (north) 0ï¿½
 							double heading = (Math.Atan2(latDiff, lngDiff) * 180.0 / Math.PI) + 90.0f;
-							// stay within [0..360]° range
+							// stay within [0..360]ï¿½ range
 							if (heading < 0) { heading += 360; }
 							if (heading >= 360) { heading -= 360; }
 							lastHeadings[i - 1] = (float)heading;
@@ -327,7 +327,7 @@ namespace Mapbox.Unity.Location
 						_userHeadingSmoothing.Add(lastHeadings[0]);
 						float finalHeading = (float)_userHeadingSmoothing.Calculate();
 
-						//fix heading to have 0° for north, 90° for east, 180° for south and 270° for west
+						//fix heading to have 0ï¿½ for north, 90ï¿½ for east, 180ï¿½ for south and 270ï¿½ for west
 						finalHeading = finalHeading >= 180.0f ? finalHeading - 180.0f : finalHeading + 180.0f;
 
 
