@@ -6,11 +6,20 @@
          "location":"12.977011, 77.590967"
         },
              
-        {"name":"Gandhi Statue", 
+        {"name":"Gandhi", 
          "type": "sculpture", 
          "location":"12.978099, 77.590407"
-        }
+        },
         
+        {"name":"Gandhi", 
+         "type": "sculpture", 
+         "location":"12.977316, 77.599754"
+        },
+
+        {"name":"Beech", 
+         "type": "vegetation", 
+         "location":"12.977316, 77.599754"
+        }      
     
     ]
 }

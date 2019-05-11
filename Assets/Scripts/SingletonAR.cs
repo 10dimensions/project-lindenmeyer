@@ -10,7 +10,7 @@ public class SingletonAR : MonoBehaviour
         get{ return _instance;}
     }
 
-    public bool isVegetation = false;
+    public string MeshType;
     public string MeshName;
 
     void Awake()

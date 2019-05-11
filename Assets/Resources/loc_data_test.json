@@ -1,7 +1,7 @@
 {
     "Items": [
                    
-        {"name":"Gandhi Statue", 
+        {"name":"Gandhi", 
          "type": "sculpture", 
          "location":"12.924891, 77.636740"
         },
@@ -9,6 +9,11 @@
         {"name":"Bamboo", 
          "type": "vegetation", 
          "location":"12.924003, 77.636645"
-        }   
+        },
+
+        {"name":"Victoria", 
+         "type": "sculpture", 
+         "location":"12.976835, 77.598804"
+        } 
     ]
 }

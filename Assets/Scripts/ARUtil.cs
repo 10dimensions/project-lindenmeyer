@@ -24,15 +24,14 @@ public class ARUtil : MonoBehaviour
 
      void Start()
     {   
-        MeshButtonPressed();
+        AddListenerToButtons();
+        
         AddMesh();
     }
 
     private void AddListenerToButtons()
     {
-        AddMeshButton.onClick.AddListener(AddMesh);
-        ConfirmButton.onClick.AddListener(ConfimButtonPressed);
-
+        AddMeshButton.onClick.AddListener(AddMesh); 
         SnapshotButton.onClick.AddListener(TakeSnapShot);
         BackButton.onClick.AddListener(BackButtonPressed);
     }
@@ -41,8 +40,7 @@ public class ARUtil : MonoBehaviour
     {   
         if(maxMesh>0)
         {
-            if(SingletonAR.Instance.isVegetation)
-            {
+            
                 var go = Resources.Load<GameObject>(SingletonAR.Instance.MeshName);
                 
                 if (go == null) 
@@ -57,40 +55,12 @@ public class ARUtil : MonoBehaviour
 
                 maxMesh--;
                 SelectedObj = V;
-            }
+            
+
+            if(SingletonAR.Instance.MeshType != "vegetation")   
+                AddMeshButton.interactable = false;
         }
 
-        MeshButtonPressed();
-    }
-
-    private void MeshButtonPressed()
-    {
-        BackButton.interactable = false;
-        SnapshotButton.interactable = false;
-        AddMeshButton.interactable = false;
-
-        ConfirmButton.gameObject.SetActive(true);
-        CancelButton.gameObject.SetActive(true);
-    }
-
-    private void ConfimButtonPressed()
-    {
-        BackButton.interactable = true;
-        SnapshotButton.interactable = true;
-        AddMeshButton.interactable = true;
-
-        ConfirmButton.gameObject.SetActive(false);
-        CancelButton.gameObject.SetActive(false);
-    }
-
-    private void CancelButtonPressed()
-    {
-        BackButton.interactable = true;
-        SnapshotButton.interactable = true;
-        AddMeshButton.interactable = true;
-
-        ConfirmButton.gameObject.SetActive(false);
-        CancelButton.gameObject.SetActive(false);
     }
 
 

@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Mapbox.Utils;
 using Mapbox.Unity.Map;
 using Mapbox.Unity.MeshGeneration.Factories;
@@ -32,6 +33,12 @@ public class LocationDataHolder : MonoBehaviour
 
     bool HasInitialized = false;
     bool HasSpawned=false;
+
+    [Header("UI Elements")]
+    [SerializeField]
+    private Text Loading;
+    [SerializeField]
+    private Button StartMapButton;
 
     void Start()
     {
@@ -63,13 +70,17 @@ public class LocationDataHolder : MonoBehaviour
         if(HasInitialized==true)
         {
             StartCoroutine(InitMapSpawn());
+
+            Loading.gameObject.SetActive(false);
+            StartMapButton.interactable = true;
+
             HasInitialized = false;
         }
     }
 
     private void DeserializeData()
     {
-        LocationDataRoot = JsonHelper.FromJson<DataItem>(LoadResourceTextfile("loc_data_test.json"));
+        LocationDataRoot = JsonHelper.FromJson<DataItem>(LoadResourceTextfile("loc_data.json")); //loc_data_test
     }
 
     private IEnumerator InitMapSpawn()
@@ -92,7 +103,12 @@ public class LocationDataHolder : MonoBehaviour
             else if(LocationDataRoot[i].type == "sculpture")
 			    {   instance = Instantiate(_sculpturePrefab); } 
             
-			instance.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
+            var instanceDatObj = instance.gameObject.transform.GetChild(0).gameObject;
+            
+            instanceDatObj.GetComponent<POIidentifier>().POIName = LocationDataRoot[i].name;
+            instanceDatObj.GetComponent<POIidentifier>().POIType = LocationDataRoot[i].type;
+			
+            instance.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
 			instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
 			_spawnedObjects.Add(instance);
         }
@@ -109,9 +125,7 @@ public class LocationDataHolder : MonoBehaviour
         return targetFile.text;
     }
 
-    
-		
-    
+
 }
 
 }   

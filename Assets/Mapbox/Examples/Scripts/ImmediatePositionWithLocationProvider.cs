@@ -85,7 +85,8 @@
 
 		void OnTriggerEnter(Collider coll)
 		{
-			SingletonAR.Instance.MeshName = coll.gameObject.tag;
+			SingletonAR.Instance.MeshName = coll.gameObject.GetComponent<POIidentifier>().POIName;
+			SingletonAR.Instance.MeshType = coll.gameObject.GetComponent<POIidentifier>().POIType;
 		}
 
 	}

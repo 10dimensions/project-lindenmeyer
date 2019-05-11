@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2594146281983156055}
   - component: {fileID: 6711173259814826919}
   - component: {fileID: 240073722770142116}
-  m_Layer: 0
+  - component: {fileID: 292238354}
+  m_Layer: 10
   m_Name: default
-  m_TagString: sculpture
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,6 +94,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 1.994569, z: 4}
   m_Center: {x: -0.0007471442, y: -0.090373576, z: 0.0096372515}
+--- !u!114 &292238354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339987787482730290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a06f39c18c368438b412b71adf540a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  POIName: 
+  POIType: 
 --- !u!1 &8103388400411863727
 GameObject:
   m_ObjectHideFlags: 0
