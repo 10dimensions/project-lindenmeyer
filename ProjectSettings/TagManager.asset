@@ -9,6 +9,7 @@ TagManager:
   - XRController
   - vegetation
   - sculpture
+  - argrid
   layers:
   - Default
   - TransparentFX

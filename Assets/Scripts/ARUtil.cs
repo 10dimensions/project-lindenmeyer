@@ -8,14 +8,17 @@ public class ARUtil : MonoBehaviour
     public static ARUtil Instance;
 
     public Button AddMeshButton;
-    public Button ConfirmButton;
-    public Button CancelButton;
     public Button SnapshotButton;
     public Button BackButton;
+
+    public Button TestButton;
 
     private GameObject SelectedObj;
 
     private int maxMesh = 3;
+
+    public string[] MeshList = {"Bamboo","Beech", "Gandhi"};
+    public int MeshListNumber=0;
 
     void Awake()
     {
@@ -34,6 +37,8 @@ public class ARUtil : MonoBehaviour
         AddMeshButton.onClick.AddListener(AddMesh); 
         SnapshotButton.onClick.AddListener(TakeSnapShot);
         BackButton.onClick.AddListener(BackButtonPressed);
+
+        TestButton.onClick.AddListener(ChangeMesh);
     }
 
     private void AddMesh()
@@ -50,7 +55,7 @@ public class ARUtil : MonoBehaviour
                 }
                 
                 GameObject V = Instantiate(go) as GameObject;
-                V.transform.parent = GameObject.FindWithTag("arroot").transform;
+                V.transform.parent = GameObject.FindWithTag("argrid").transform;
                 V.SetActive(true);
 
                 maxMesh--;
@@ -64,7 +69,6 @@ public class ARUtil : MonoBehaviour
     }
 
 
-
     private void TakeSnapShot()
     {
 
@@ -73,6 +77,24 @@ public class ARUtil : MonoBehaviour
     private void BackButtonPressed()
     {
 
+    }
+
+    private void ChangeMesh()
+    {   
+        GameObject _argrid = GameObject.FindWithTag("argrid");
+
+        foreach (Transform item in _argrid.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        MeshListNumber++;
+
+        SingletonAR.Instance.MeshName = MeshList[MeshListNumber];
+
+        if(MeshListNumber == 2) SingletonAR.Instance.MeshType = "sculpture";
+
+        AddMesh();
     }
 
 }
