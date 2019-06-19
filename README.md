@@ -20,18 +20,18 @@ based on which a few species (Bamboo, Beech and African Tulip) were chosen for t
 - TreeIt (vegetation)
 
 ## Logic
-[!Description](https://github.com/10dimensions/CubbonPark/blob/master/desc.PNG)
+<img src="https://github.com/10dimensions/CubbonPark/blob/master/desc.PNG" width="700">
+
 
 ## Gallery
-[!](https://github.com/10dimensions/CubbonPark/blob/master/home.PNG)
-[!](https://github.com/10dimensions/CubbonPark/blob/master/navigation.PNG)
+<p float="left">
+<img src="https://github.com/10dimensions/CubbonPark/blob/master/home.PNG" width="160">
+<img src="https://github.com/10dimensions/CubbonPark/blob/master/navigation.PNG" width="160">
 
-<br>
-[!](https://github.com/10dimensions/CubbonPark/blob/master/bamboo.PNG)
-[!](https://github.com/10dimensions/CubbonPark/blob/master/beech.PNG)
-[!](https://github.com/10dimensions/CubbonPark/blob/master/gandhi.PNG)
-
-
+<img src="https://github.com/10dimensions/CubbonPark/blob/master/bamboo.PNG" width="160">
+<img src="https://github.com/10dimensions/CubbonPark/blob/master/beech.PNG" width="160">
+<img src="https://github.com/10dimensions/CubbonPark/blob/master/gandhi.PNG" width="160">
+</p>
 
 ## Next Iteration ...
 - Integration of native AR libraries (or) Vuforia
